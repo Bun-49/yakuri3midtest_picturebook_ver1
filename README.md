@@ -1,0 +1,1 @@
+# yakuri3midtest_picturebook_ver1
