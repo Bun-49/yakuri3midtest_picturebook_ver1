@@ -1,0 +1,179 @@
+<html>
+<meta charset="utf-8">
+<head>
+ <title>薬理学Ⅲ 単語帳</title>
+   <h3 align="center">薬理学Ⅲの中間テストの単語帳です。<br/>これはテストバージョンです。<br/>↓の写真をクリック</h3>
+   <hrwidth="50%" align="left"><hr/>
+
+
+<script>
+/**薬の写真のURLと薬名、その種類をまとめたもの*/
+var arr = [
+["https://upload.wikimedia.org/wikipedia/commons/4/46/Metformin.svg", "「メトホルミン」 (糖尿病治療薬 の ビグアナイド薬)"],
+["https://upload.wikimedia.org/wikipedia/commons/2/27/Buformin.svg", "「ブホルミン」 (糖尿病治療薬 の ビグアナイド薬)"],
+["https://upload.wikimedia.org/wikipedia/commons/a/ad/Pioglitazone.svg", "「ピオグリタゾン」 (糖尿病治療薬 の チアゾリジン系)"],
+["https://kotobank.jp/image/dictionary/eiyo/f000003680.jpg", "「トルブタミド」 (糖尿病治療薬 の スルホニルウレア薬)"],
+["https://www.kegg.jp/Fig/drug/D00219.gif", "「グリクロピラミド」 (糖尿病治療薬 の スルホニルウレア薬)"],
+["https://upload.wikimedia.org/wikipedia/commons/b/b6/Acetohexamide.svg", "「アセトヘキサミド」 (糖尿病治療薬 の スルホニルウレア薬)"],
+["https://www.kegg.jp/Fig/drug/D00271.gif", "「クロルプロパミド」 (糖尿病治療薬 の スルホニルウレア薬)"],
+["https://www.kegg.jp/Fig/drug/D01599.gif", "「グリクラジド」 (糖尿病治療薬 の スルホニルウレア薬)"],
+["https://www.kegg.jp/Fig/drug/D00336.gif", "「グリペンクラミド」 (糖尿病治療薬 の スルホニルウレア薬)"],
+["https://www.kegg.jp/Fig/drug/D00593.gif", "「グリメピリド」 (糖尿病治療薬 の スルホニルウレア薬)"],
+["https://www.kegg.jp/Fig/drug/D01111.gif", "「ナテグリニド」 (糖尿病治療薬 の グリニド薬)"],
+["https://www.kegg.jp/Fig/drug/D01854.gif", "「ミチグリニド」 (糖尿病治療薬 の グリニド薬)"],
+["https://www.kegg.jp/Fig/drug/D00594.gif", "「レバグリニド」 (糖尿病治療薬 の グリニド薬)"],
+["https://www.kegg.jp/Fig/drug/D08996.gif", "「サキサグリプチン」 (糖尿病治療薬 の DPP-4阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D07080.gif", "「ビルダグリプチン」 (糖尿病治療薬 の DPP-4阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D06553.gif", "「アログリプチン」 (糖尿病治療薬 の DPP-4阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D10178.gif", "「トレラグリプチン」 (糖尿病治療薬 の DPP-4阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D09566.gif", "「リナグリプチン」 (糖尿病治療薬 の DPP-4阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D09780.gif", "「アナグリプチン」 (糖尿病治療薬 の DPP-4阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D06645.gif", "「シタグリプチン」 (糖尿病治療薬 の DPP-4阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D08616.gif", "「テネリグリプチン」 (糖尿病治療薬 の DPP-4阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D10317.gif", "「オマリグリプチン」 (糖尿病治療薬 の DPP-4阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D00625.gif", "「ミグリトール」 (糖尿病治療薬 の α-グルコシダーゼ阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D01665.gif", "「ボグリボース」 (糖尿病治療薬 の α-グルコシダーゼ阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D00216.gif", "「アカルボース」 (糖尿病治療薬 の α-グルコシダーゼ阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D10196.gif", "「イプラグリフロジン」 (糖尿病治療薬 の SGLT2阻害薬)"],
+["https://upload.wikimedia.org/wikipedia/commons/5/50/Canagliflozin.svg", "「カナグリフロジン」 (糖尿病治療薬 の SGLT2阻害薬)"],
+["https://upload.wikimedia.org/wikipedia/commons/7/78/Dapagliflozin_structure.svg", "「ダパグリフロジン」 (糖尿病治療薬 の SGLT2阻害薬)"],
+["https://upload.wikimedia.org/wikipedia/commons/9/95/Empagliflozin.svg", "「エンパグリフロジン」 (糖尿病治療薬 の SGLT2阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D10195.gif", "「ルセオグリフロジン」 (糖尿病治療薬 の SGLT2阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D09978.gif", "「トホグリフロジン」 (糖尿病治療薬 の SGLT2阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D00893.gif", "「プラバスタチン」 (脂質異常症治療薬 の スタチン系)"],
+["https://www.kegg.jp/Fig/drug/D00434.gif", "「シンバスタチン」 (脂質異常症治療薬 の スタチン系)"],
+["https://www.kegg.jp/Fig/drug/D00892.gif", "「フルバスタチン」 (脂質異常症治療薬 の スタチン系)"],
+["https://upload.wikimedia.org/wikipedia/commons/e/ef/Atorvastatin.svg", "「アトルバスタチン」 (脂質異常症治療薬 の スタチン系)"],
+["https://upload.wikimedia.org/wikipedia/commons/7/79/Rosuvastatin-Formula_V3.svg", "「ロスバスタチン」 (脂質異常症治療薬 の スタチン系)"],
+["https://upload.wikimedia.org/wikipedia/commons/6/63/Pitavastatin2DCSD.svg", "「ピタバスタチン」 (脂質異常症治療薬 の スタチン系)"],
+["https://www.kegg.jp/Fig/drug/D01934.gif", "「コレスチミド」 (脂質異常症治療薬 の 陰イオン交換樹脂)"],
+["https://www.kegg.jp/Fig/drug/D02690.gif", "「コレスチラミン」 (脂質異常症治療薬 の 陰イオン交換樹脂)"],
+["https://www.kegg.jp/Fig/drug/D01966.gif", "「エゼチミブ」 (脂質異常症治療薬 の 小腸コレステロールトランスポーター阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D09638.gif", "「ロミタピド」 (脂質異常症治療薬 の MTP阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D00476.gif", "「プロブコール」 (脂質異常症治療薬 の プロブコール)"],
+["https://www.kegg.jp/Fig/drug/D00279.gif", "「クロフィブラート」 (脂質異常症治療薬 の フィブラート系)"],
+["https://www.kegg.jp/Fig/drug/D01366.gif", "「ベザフィブラート」 (脂質異常症治療薬 の フィブラート系)"],
+["https://www.kegg.jp/Fig/drug/D00565.gif", "「フェノフィブラート」 (脂質異常症治療薬 の フィブラート系)"],
+["https://www.kegg.jp/Fig/drug/D01300.gif", "「クリノフィブラート」 (脂質異常症治療薬 の フィブラート系)"],
+["https://www.kegg.jp/Fig/drug/D10711.gif", "「ペマフィブラート」 (脂質異常症治療薬 の フィブラート系)"],
+["https://www.kegg.jp/Fig/drug/D01530.gif", "「トコフェロールニコチン酸エステル」 (脂質異常症治療薬 の ニコチン酸系薬)"],
+["https://www.kegg.jp/Fig/drug/D01291.gif", "「ニコモール」 (脂質異常症治療薬 の ニコチン酸系薬)"],
+["https://www.kegg.jp/Fig/drug/D01754.gif", "「ニセリトロール」 (脂質異常症治療薬 の ニコチン酸系薬)"],
+["http://kusuridukuri.cho-chin.com/drugs/084epadel.jpg", "「イコサペント酸エチル」 (脂質異常症治療薬 の その他)"],
+["https://www.kegg.jp/Fig/drug/D01221.gif", "「ガンマオリザノール」 (脂質異常症治療薬 の その他)"],
+["https://www.kegg.jp/Fig/drug/D02047.gif", "「デキストラン硫酸エステルナトリウムイオウ18」 (脂質異常症治療薬 の その他)"],
+["https://www.kegg.jp/Fig/drug/D05422.gif", "「ベンテト酸」 (脂質異常症治療薬 の その他(新薬))"],
+["https://www.kegg.jp/Fig/drug/D00224.gif", "「アロプリノール」 (高尿酸血症治療薬 の 尿酸産生抑制薬)"],
+["https://www.kegg.jp/Fig/drug/D09786.gif", "「トピロキスタット」 (高尿酸血症治療薬 の 尿酸産生抑制薬)"],
+["https://www.kegg.jp/Fig/drug/D01206.gif", "「フェブキソスタット」 (高尿酸血症治療薬 の 尿酸産生抑制薬)"],
+["https://www.kegg.jp/Fig/drug/D01056.gif", "「ベンズブロマロン」 (高尿酸血症治療薬 の 尿酸排泄促進薬)"],
+["https://www.kegg.jp/Fig/drug/D01661.gif", "「ブコローム」 (高尿酸血症治療薬 の 尿酸排泄促進薬)"],
+["https://www.kegg.jp/Fig/drug/D00475.gif", "「プロベネシド」 (高尿酸血症治療薬 の 尿酸排泄促進薬)"],
+["https://www.kegg.jp/Fig/drug/D11071.gif", "「ドチヌラド」 (高尿酸血症治療薬 の 尿酸排泄促進薬(新薬))"],
+["https://www.kegg.jp/Fig/drug/D00570.gif", "「コルヒチン」 (痛風治療薬 の 痛風発作治療薬)"],
+["https://www.kegg.jp/Fig/drug/D00141.gif", "「インドメタシン」 (痛風治療薬 の 痛風発作治療薬)"],
+["https://www.kegg.jp/Fig/drug/D10077.gif", "「ナプロキセン」 (痛風治療薬 の 痛風発作治療薬)"],
+["https://www.kegg.jp/Fig/drug/D01344.gif", "「フェンブフェン」 (痛風治療薬 の 痛風発作治療薬)"],
+["https://www.kegg.jp/Fig/drug/D01578.gif", "「プラノプロフェン」 (痛風治療薬 の 痛風発作治療薬)"],
+["https://www.kegg.jp/Fig/drug/D00463.gif", "「オキサプロジン」 (痛風治療薬 の 痛風発作治療薬)"],
+["https://www.kegg.jp/Fig/drug/D00472.gif", "「プレドニゾロン」 (痛風治療薬 の 痛風発作治療薬)"],
+["https://www.kegg.jp/Fig/drug/D10017.gif", "「ナプロキセン」 (痛風治療薬 の NSAIDs)"],
+["https://www.kegg.jp/Fig/drug/D00472.gif", "「プレドニゾロン」 (痛風治療薬 の NSAIDs)"],
+["https://www.kegg.jp/Fig/drug/D00570.gif", "「コルヒチン」 (痛風治療薬 の NSAIDs)"],
+["https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Sodium_aurothiomalate.svg/1200px-Sodium_aurothiomalate.svg.png", "「金リンゴ酸ナトリウム」 (リウマチ治療薬 の 免疫調節薬(金製剤))"],
+["https://www.kegg.jp/Fig/drug/D00496.gif", "「D-ペニシラミン」 (リウマチ治療薬 の 免疫調節薬(SH基製剤))"],
+["https://www.kegg.jp/Fig/drug/D01809.gif", "「ブシラミン」 (リウマチ治療薬 の 免疫調節薬(SH基製剤))"],
+["https://www.kegg.jp/Fig/drug/D00448.gif", "「サラゾスルファピリジン」 (リウマチ治療薬 の 免疫調節薬)"],
+["https://www.kegg.jp/Fig/drug/D01146.gif", "「イグラチモド」 (リウマチ治療薬 の 免疫調節薬)"],
+["https://www.kegg.jp/Fig/drug/D00142.gif", "「メトトレキサート」 (リウマチ治療薬 の 免疫抑制薬)"],
+["https://www.kegg.jp/Fig/drug/D00749.gif", "「レフルノミド」 (リウマチ治療薬 の 免疫抑制薬)"],
+["https://www.kegg.jp/Fig/drug/D08556.gif", "「タクロリムス」 (リウマチ治療薬 の 免疫抑制薬)"],
+["https://www.kegg.jp/Fig/drug/D09970.gif", "「トファチニブ」 (リウマチ治療薬 の JAK阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D10308.gif", "「バリシチニブ」 (リウマチ治療薬 の JAK阻害薬)"],
+["https://www.kegg.jp/Fig/drug/D00314.gif", "「エチドロン酸」 (骨粗鬆症治療薬 の ビスホスホネート)"],
+["https://www.kegg.jp/Fig/drug/D00941.gif", "「パミドロン酸」 (骨粗鬆症治療薬 の ビスホスホネート)"],
+["https://www.kegg.jp/Fig/drug/D00939.gif", "「アレンドロン酸」 (骨粗鬆症治療薬 の ビスホスホネート)"],
+["https://www.kegg.jp/Fig/drug/D00942.gif", "「リセドロン酸」 (骨粗鬆症治療薬 の ビスホスホネート)"],
+["https://www.kegg.jp/Fig/drug/D09198.gif", "「ミノドロン酸」 (骨粗鬆症治療薬 の ビスホスホネート)"],
+["https://www.kegg.jp/Fig/drug/D04486.gif", "「イバンドロン酸」 (骨粗鬆症治療薬 の ビスホスホネート)"],
+["https://www.kegg.jp/Fig/drug/D01968.gif", "「ゾレドロン酸」 (骨粗鬆症治療薬 の ビスホスホネート)"],
+["https://www.kegg.jp/Fig/drug/D03505.gif", "「シナカルセト」 (骨粗鬆症治療薬 の PTHにかかわる薬)"],
+["https://www.kegg.jp/Fig/drug/D03296.gif", "「エルカトニン」 (骨粗鬆症治療薬 の カルシトニン製剤)"],
+["https://www.kegg.jp/Fig/drug/D00129.gif", "「カルシトリオール」 (骨粗鬆症治療薬 の 活性化ビタミンD3製剤)"],
+["https://www.kegg.jp/Fig/drug/D01518.gif", "「アルファカルシドール」 (骨粗鬆症治療薬 の 活性化ビタミンD3製剤)"],
+["https://www.kegg.jp/Fig/drug/D07578.gif", "「エルデカルシロール」 (骨粗鬆症治療薬 の 活性化ビタミンD3製剤)"],
+["https://www.kegg.jp/Fig/drug/D02217.gif", "「ラロキシフェン」 (骨粗鬆症治療薬 の SERM)"],
+["https://upload.wikimedia.org/wikipedia/commons/0/05/Bazedoxifene.svg", "「バゼドキシフェン」 (骨粗鬆症治療薬 の SERM)"],
+["https://www.kegg.jp/Fig/drug/D01338.gif", "「イプリフラボン」 (骨粗鬆症治療薬 の エストロゲン類似化合物)"],
+["https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Calcium_Lactate_Structural_Formula_V.1.svg/170px-Calcium_Lactate_Structural_Formula_V.1.svg.png", "「乳酸カルシウム」 (骨粗鬆症治療薬 の カルシウム製剤)"],
+["https://upload.wikimedia.org/wikipedia/commons/3/3b/Dicalcium_phosphate.svg", "「リン酸水素カルシウム」 (骨粗鬆症治療薬 の カルシウム製剤)"],
+["https://www.kegg.jp/Fig/drug/D01598.gif", "「L-アスパラギン酸カルシウム」 (骨粗鬆症治療薬 の カルシウム製剤)"],
+["https://www.chemicalbook.com/CAS/GIF/863-61-6.gif", "「メナテトレノン」 (骨粗鬆症治療薬 の ビタミンK2製剤)"],
+["https://www.kegg.jp/Fig/drug/D03800.gif", "「亜酸化窒素」 (全身麻酔薬 の 吸入麻酔薬)"],
+["https://www.kegg.jp/Fig/drug/D00547.gif", "「セボフルラン」 (全身麻酔薬 の 吸入麻酔薬)"],
+["https://www.kegg.jp/Fig/drug/D00545.gif", "「イソフルラン」 (全身麻酔薬 の 吸入麻酔薬)"],
+["https://www.kegg.jp/Fig/drug/D00546.gif", "「デスフルラン」 (全身麻酔薬 の 吸入麻酔薬)"],
+["https://www.kegg.jp/Fig/drug/D00308.gif", "「ドロペリドール」 (全身麻酔薬 の 静脈麻酔薬(神経遮断性麻酔))"],
+["https://www.kegg.jp/Fig/drug/D00320.gif", "「フェンタニル」 (全身麻酔薬、鎮痛薬 の 静脈麻酔薬(神経遮断性麻酔)、神経遮断性麻酔)"],
+["https://www.kegg.jp/Fig/drug/D00293.gif", "「ジアゼパム」 (全身麻酔薬 の 静脈麻酔薬(神経遮断性麻酔))"],
+["https://www.kegg.jp/Fig/drug/D00498.gif", "「ペンタゾシン」 (全身麻酔薬、鎮痛薬 の 静脈麻酔薬(神経遮断性麻酔)、神経遮断性麻酔)"],
+["https://www.kegg.jp/Fig/drug/D00549.gif", "「プロポフォール」 (全身麻酔薬 の 静脈麻酔薬(全静脈麻酔))"],
+["https://www.kegg.jp/Fig/drug/D01177.gif", "「レミフェンタニル」 (全身麻酔薬、鎮痛薬 の 静脈麻酔薬(全静脈麻酔)、神経遮断性麻酔)"],
+["https://www.kegg.jp/Fig/drug/D00765.gif", "「ロクロニウム」 (全身麻酔薬 の 静脈麻酔薬(全静脈麻酔))"],
+["https://www.kegg.jp/Fig/drug/D00714.gif", "「チオペンタール」 (全身麻酔薬 の 静脈麻酔薬(全静脈麻酔), 麻酔前投与薬(基礎麻酔薬))"],
+["https://www.kegg.jp/Fig/drug/D00711.gif", "「ケタミン」 (全身麻酔薬 の 非競合的拮抗薬)"],
+["https://www.kegg.jp/Fig/drug/D08233.gif", "「モルヒネ」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D08249.gif", "「ナロキソン」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D05312.gif", "「オキシコドン」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D16578.gif", "「モルヒネ-6-グルクロニド」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D00195.gif", "「コデイン」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D08195.gif", "「メサドン」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D08623.gif", "「トラマドール」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D06007.gif", "「タペンタドール」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D08343.gif", "「ペチジン」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D00839.gif", "「ヒドロモルフィン」 (鎮痛薬 の 麻薬性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D03197.gif", "「ブトルファノール」 (鎮痛薬 の 麻酔拮抗性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D07904.gif", "「エプタゾシン」 (鎮痛薬 の 麻酔拮抗性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D07132.gif", "「ブプレノルフィン」 (鎮痛薬 の 麻酔拮抗性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D02238.gif", "「レバロルファン」 (鎮痛薬 の 麻酔拮抗性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D08623.gif", "「トラマドール」 (鎮痛薬 の 麻酔拮抗性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D08249.gif", "「ナロキソン」 (鎮痛薬 の 麻酔拮抗性鎮痛薬)"],
+["https://www.kegg.jp/Fig/drug/D09539.gif", "「ガバペンチン」 (鎮痛薬 の 鎮痛補助薬(神経障害性疼痛)、抗てんかん薬)"],
+["https://www.kegg.jp/Fig/drug/D02716.gif", "「プレガバリン」 (鎮痛薬 の 鎮痛補助薬(神経障害性疼痛)、抗てんかん薬)"],
+["https://www.kegg.jp/Fig/drug/D10790.gif", "「ミロガバリン」 (鎮痛薬 の 鎮痛補助薬(神経障害性疼痛)、抗てんかん薬)"],
+["https://www.kegg.jp/Fig/drug/D01179.gif", "「デュロキセチン」 (鎮痛薬 の 鎮痛補助薬(神経障害性疼痛)、抗うつ薬)"],
+["https://www.kegg.jp/Fig/drug/D08215.gif", "「メキシレチン」 (鎮痛薬 の 鎮痛補助薬(神経障害性疼痛)、抗不整脈薬)"],
+["https://www.kegg.jp/Fig/drug/D08249.gif", "「ナロキソン」 (鎮痛薬 の 麻薬拮抗薬)"],
+["https://www.kegg.jp/Fig/drug/D02238.gif", "「レバロルファン」 (鎮痛薬 の 麻薬拮抗薬)"],
+["https://www.kegg.jp/Fig/drug/D00451.gif", "「スマトリプタン」 (鎮痛薬 の 片頭痛)"],
+["https://www.kegg.jp/Fig/drug/D00415.gif", "「ゾルミトリプタン」 (鎮痛薬 の 片頭痛)"],
+["https://www.kegg.jp/Fig/drug/D07887.gif", "「エレトリプタン」 (鎮痛薬 の 片頭痛)"],
+["https://www.kegg.jp/Fig/drug/D08485.gif", "「リザトリプタン」 (鎮痛薬 の 片頭痛)"],
+["https://www.kegg.jp/Fig/drug/D00674.gif", "「ナラトリプタン」 (鎮痛薬 の 片頭痛)"],
+["https://www.kegg.jp/Fig/drug/D07906.gif", "「エルゴタミン」 (鎮痛薬 の 片頭痛)"]
+];
+
+/***/
+var ima = 0;
+function push_img(){
+var kozo = document.getElementById("kozo");
+var namae = document.getElementById("namae");
+
+ if(namae.innerHTML==""){ /**もし答えが書かれていなかったら*/
+ namae.innerHTML=arr[ima][1]; /**答えを表示*/
+ }else{
+ima = Math.floor(Math.random() * 142);/**答えが書かれているなら、乱数から*/
+kozo.src = arr[ima][0];/**構造を定義し*/
+ namae.innerHTML="";/**答えを空にする*/
+ }
+}
+</script>
+
+
+<p class="img_center">
+<img id="kozo" src="https://upload.wikimedia.org/wikipedia/commons/4/46/Metformin.svg" style="height:250px;border:grey solid 2px;" onclick="push_img()"/>
+<link rel="stylesheet" href="stylesheet.css">
+</p>
+
+<h3 id="namae" align="center"></h3>
+</html>
